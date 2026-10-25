@@ -1,0 +1,34 @@
+[project]
+name = "spam-detector-with-python"
+version = "0.1.0"
+description = "A small machine-learning project for classifying SMS messages as spam or ham."
+readme = "README.md"
+authors = [
+    { name = "Rajat", email = "kushwaharajat1255@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "nltk>=3.10.4",
+    "pandas>=3.1.0",
+    "scikit-learn>=1.9.1",
+    "numpy>=2.5.4",
+]
+
+[project.scripts]
+spam-detector-with-python = "spam_detector_with_python:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.14"

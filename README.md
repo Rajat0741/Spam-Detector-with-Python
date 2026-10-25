@@ -1,6 +1,6 @@
 Spam Detector with Python
 
-This repository provides a Python implementation to detect spam messages using machine learning. The main script, Spam_detection_fixed.py, demonstrates every step from data loading to prediction. The project is suitable for learning about text classification, natural language processing, and basic ML workflows.
+This repository provides a Python implementation to detect spam messages using machine learning. The package lives under `src/spam_detector_with_python/` and exposes a `main()` entry point. The project is suitable for learning about text classification, natural language processing, and basic ML workflows.
 
 Features
 
@@ -12,14 +12,13 @@ Features
 
 Requirements
 
-Python 3.6 or higher  
-Libraries: pandas, scikit-learn, numpy  
-Dataset: CSV file with SMS messages and labels (spam/ham)
+Python 3.14 or higher  
+Dependencies are declared in `pyproject.toml` (nltk, pandas, scikit-learn, numpy).
 
 Setup
 
 Install dependencies:
-pip install pandas scikit-learn numpy
+uv sync
 
 Download or prepare a dataset in CSV format with columns for "label" and "message".
 
@@ -28,12 +27,15 @@ label,message
 ham,Hey, are we still meeting tomorrow?
 spam,You’ve won a free prize! Click this link now
 
-Place the dataset in the same folder as the script or adjust the file path in Spam_detection_fixed.py.
+Place the dataset at `data/spam_dataset.csv` (or adjust the path in `src/spam_detector_with_python/cli.py`).
 
 Running the Spam Detector
 
-To train and test the model, run the script:
-python Spam_detection_fixed.py
+To train and test the model, run:
+uv run spam-detector-with-python
+
+Or run the module directly:
+uv run python -m spam_detector_with_python.cli
 
 You will see output showing model accuracy, confusion matrix, and examples of predictions.
 
